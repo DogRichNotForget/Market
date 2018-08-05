@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.chatRobot.dao.IUserDao">
+
+    <select id="selectUser" resultType="User" parameterType="long">
+        select * from user where id = #{id}
+    </select>
+
+    <select id="selectAllUser" resultType="User">
+        select * from user
+    </select>
+
+    <select id="selectUserByEmail" resultType="User" parameterType="string">
+        select * from user where email = #{email}
+    </select>
+
+    <select id="addUser" resultType="User" parameterType="User">
+        insert into user (email,password,username,role,status,regTime,regIp) values (#{email},#{password},#{username},#{role},#{status},#{regTime},#{regIp})
+    </select>
+    <select id="removeUser" resultType="User" parameterType="long">
+        delete from user where id = #{id}
+    </select>
+
+    <select id="modifyUser" resultType="User" parameterType="User">
+        update user set
+                 email = #{email},
+                 password = #{password},
+                 username = #{username},
+                 role = #{role},
+                 status = #{status},
+                 regIp = #{regIp}
+                 where id = #{id}
+    </select>
+
+</mapper>
