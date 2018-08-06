@@ -15,7 +15,7 @@ public class AddressServiceImpl implements AddressService {
     @Autowired
     AddressDao addressDao;
     @Override
-    public List<Address> selectAddress(int itemsId){
-        return addressDao.selectAddress(itemsId);
+    public List<Address> selectAddress(Map<String,Object> map){
+        return addressDao.selectAddress(map);
     }
 }

@@ -7,5 +7,5 @@ import java.util.Map;
 
 public interface AddressDao {
     //根据地址Id查询收货人信息
-    List<Address> selectAddress(int itemsId);
+    List<Address> selectAddress(Map<String,Object> map);
 }

@@ -6,5 +6,5 @@ import java.util.List;
 import java.util.Map;
 
 public interface AddressService {
-    List<Address> selectAddress(int itemsId);
+    List<Address> selectAddress(Map<String,Object> map);
 }

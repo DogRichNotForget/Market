@@ -8,7 +8,7 @@ import java.util.Map;
 
 public interface ItemsService {
     //得到商品全部信息
-    List<Items> selectItems(int itemsId);
+    List<Items> selectItems(Map<String,Object> map);
     //得到商品图片
-    List<Picitem> selectPic(int itemsId);
+    List<Picitem> selectPic(Map<String,Object> map);
 }
