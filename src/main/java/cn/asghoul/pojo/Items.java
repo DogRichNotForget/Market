@@ -79,4 +79,18 @@ public class Items {
     public void setClientId(long clientId) {
         this.clientId = clientId;
     }
+
+    @Override
+    public String toString(){
+        return "Items{"+
+                "itemId='"+ itemId+'\''+
+                ",launchTime='"+ launchTime+'\''+
+                ",itemName='"+ itemName+'\''+
+                ",prcie='"+price+'\''+
+                "itemType='"+itemType+'\''+
+                "descr='"+descr+'\''+
+                "epic='"+epic+'\''+
+                "clientId='"+clientId+'\''+
+                "}";
+    }
 }

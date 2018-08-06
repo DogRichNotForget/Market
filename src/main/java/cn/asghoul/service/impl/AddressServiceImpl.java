@@ -11,10 +11,11 @@ import java.util.Map;
 
 @Service
 public class AddressServiceImpl implements AddressService {
+    //查询收货人信息
     @Autowired
     AddressDao addressDao;
     @Override
-    public List<Address> selectAddress(Map<String,Object> map){
-        return addressDao.selectAddress(map);
+    public List<Address> selectAddress(int itemsId){
+        return addressDao.selectAddress(itemsId);
     }
 }

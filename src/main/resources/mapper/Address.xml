@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.asghoul.dao.AddressDao">
-    <select id="selectAll" resultType="Address" parameterType="hasmap">
+    <select id="selectAll" resultType="cn.asghoul.pojo.Address" parameterType="int">
         SELECT * FROM Address;
         <where>
             <if test="addressId!=null">
-                AND addressId=#{id}
+                AND addressId=#{addressId}
             </if>
         </where>
     </select>

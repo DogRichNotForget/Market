@@ -30,4 +30,13 @@ public class Picitem {
     public void setPicAddress(String picAddress) {
         this.picAddress = picAddress;
     }
+
+    @Override
+    public String toString() {
+        return "Picitem{" +
+                "picId='" + picId + '\'' +
+                ",itemId='" + itemId + '\'' +
+                ",picAddress='" + picAddress+ '\'' +
+                "}";
+    }
 }
