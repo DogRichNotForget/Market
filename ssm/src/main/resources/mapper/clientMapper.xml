@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="com.xianyu.mapper.clientMapper">
+    <select id="selectMessage" resultType="com.xianxu.pojo.client">
+        SELECT name,pic FROM client WHERE clientId=#{clientId};
+    </select>
+    <select id="updatepic">
+        UPDATE client SET pic=#{clientId} WHERE clientId=#{clientId};
+    </select>
+    <select id="updateMessages">
+        UPDATE client SET name=#{name},sex=#{sex},prsign=#{prsign},telphone=#{telphone},email=#{email}
+        WHERE clientId=#{clientId};
+    </select>
+    <select id="selectMessages">
+        SELECT name,sex,prsign,telpone,email FROM client WHERE clientId=#{clientId};
+    </select>
+</mapper>
