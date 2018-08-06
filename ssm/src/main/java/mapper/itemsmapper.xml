@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.asghoul.dao.itemsDao">
+
+    <resultMap type="cn.asghoul.pojo" id="items">
+        <id property="itmeId" column="itemId" />
+        <result property="launchTime" column="launchTime" />
+        <result property="itemName" column="itemName" />
+        <result property="price" column="price" />
+        <result property="itemType" column="itemType" />
+        <result property="descr" column="descr" />
+        <result property="pic" column="pic" />
+        <result property="clientId" column="clientId" />
+    </resultMap>
+    <select id="getItemsBytype" resultMap="items">
+        select *from items where itemType=#{itmeType};
+    </select>
+
+</mapper>
