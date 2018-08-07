@@ -1,0 +1,36 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/javaee-api-7.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/c3p0-0.9.5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/jackson-annotations-2.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/mybatis-spring-1.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/jstl-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/spring-expression-4.3.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/jackson-core-2.8.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/mysql-connector-java-5.1.41.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/logback-core-1.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/spring-web-4.3.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/spring-webmvc-4.3.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/mchange-commons-java-0.2.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/spring-context-4.3.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/spring-aop-4.3.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/spring-core-4.3.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/spring-tx-4.3.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/spring-jdbc-4.3.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/jackson-databind-2.8.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/logback-classic-1.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/spring-beans-4.3.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/spring-test-4.3.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/javax.mail-1.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/activation-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/junit-4.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/mybatis-3.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ssm/target/ssm/WEB-INF/lib/slf4j-api-1.7.25.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

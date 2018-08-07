@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xianyu.mapper.addressMapper">
+    <!-- 查询出默认的地址-->
+    <select id="selectprioraddress" resultType="addresss">
+        SELECT name,telphone,address FROM address WHERE clientId=#{clientId} AND defaultAddress=1
+    </select>
+    <!--查询出所有的地址信息-->
+    <select id="selectaddresses" resultType="address">
+        SELECT name,telphone,address FROM address WHERE clientId=#{clientId} AND defaultAddress=0
+    </select>
+    <!--修改默认地址-->
+    <update id ="updateprioraddress">
+        UPDATE address SET defaultAddress=1 WHERE clientId=#{clientId} AND defaultAddress=0
+    </update>
+    <!--编辑地址信息-->
+    <update id="updateaddress">
+        UPDATE address SET name=#{name},telphone=#{telphone},address=#{address} WHERE clientId=#{clientId} AND addressId=#{addressId}
+    </update>
+    <!--删除地址信息-->
+    <delete id="deleteaddress">
+        DELETE FROM address WHERE clientId=#{clientId} AND addressId=#{addressId}
+    </delete>
+    <!--新添地址信息-->
+    <insert id="insertaddress">
+        INSERT INTO address(addressId,address,telphone,name,defaultAddress,clientId) VALUES
+        (addressId=#{addressId},address=#{address},telphone=#{telphone},name=#{name}
+        ,defaultAddress=#{defaultAddress},clientId=#{clientId})
+    </insert>
+</mapper>

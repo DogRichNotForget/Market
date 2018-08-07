@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xianyu.mapper.collectMapper">
+    <!--查询购物车内容-->
+    <select id="selectcollect" resultType="collect">
+        SELECT * FROM collect WHERE clientId=#{clientId}
+    </select>
+    <!--清空购物车-->
+    <delete id="deletecollect">
+        DELETE FROM collect WHERE clientId=#{clientId} AND collectId=#{collectId}
+    </delete>
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xianyu.mapper.redbagMapper">
+    <!--查询专享未过期未使用红包-->
+    <select id="selectspecialredbags" resultType="redbag">
+        SELECT * FROM redbag WHERE bagType=0 AND TO_DAYS(endTime)-TO_DAYS(now())>=0 AND clientId=#{clientId}
+    </select>
+    <!--查询签到未过期未使用红包-->
+    <select id="selectgeneralredbags" resultType="redbag">
+        SELECT * FROM redbag WHERE bagType=0 AND TO_DAYS(endTime)-TO_DAYS(now())>=0 AND clientId=#{clientId}
+    </select>
+    <!--提示红包未使用当天过期-->
+    <select id="nowdayredbags" resultType="redbag">
+        SELECT * FROM redbag WHERE bagType=0 AND TO_DAYS(endTime)-TO_DAYS(now())=0 AND clientId=#{clientId}
+    </select>
+</mapper>
