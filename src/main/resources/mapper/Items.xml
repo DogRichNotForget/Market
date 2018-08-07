@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.asghoul.dao.ItemsDao">
-    <select id="selectAll" resultType="cn.asghoul.pojo.Items" parameterType="hasmap">
+    <select id="selectItems" resultType="cn.asghoul.pojo.Items" parameterType="int">
         SELECT * FROM  Items;
         <where>
             <if test="itemId!=null">
-                AND itemId=#{itemsId}
+                AND itemId=#{itemId}
             </if>
         </where>
     </select>
     <select id="selectPic" resultType="cn.asghoul.pojo.Picitem">
         SELECT * FROM Picitem;
         <where>
-            <if test="itemId!=null">
-                AND itemId=#{itemsId}
+            <if test="picId!=null">
+                AND picId=#{picId}
             </if>
         </where>
     </select>

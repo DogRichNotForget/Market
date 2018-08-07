@@ -1,5 +1,8 @@
 package cn.asghoul.pojo;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.sql.Timestamp;
 import java.util.Date;
 /*
  * 商品表：items
@@ -7,28 +10,28 @@ import java.util.Date;
  */
 public class Items {
 
-    private long itemId;//商品id
-    private Date launchTime;//上架时间
+    private BigInteger itemId;//商品id
+    private Timestamp launchTime;//上架时间
     private String itemName;//商品名称
-    private float price;//商品价格
+    private BigDecimal price;//商品价格
     private int itemType;//类型
     private String descr;//描述
     private String epic;//图片
-    private long clientId;//卖家id
+    private BigInteger clientId;//卖家id
 
-    public long getItemId() {
+    public BigInteger getItemId() {
         return itemId;
     }
 
-    public void setItemId(long itemId) {
+    public void setItemId(BigInteger itemId) {
         this.itemId = itemId;
     }
 
-    public Date getLaunchTime() {
+    public Timestamp getLaunchTime() {
         return launchTime;
     }
 
-    public void setLaunchTime(Date launchTime) {
+    public void setLaunchTime(Timestamp launchTime) {
         this.launchTime = launchTime;
     }
 
@@ -40,11 +43,11 @@ public class Items {
         this.itemName = itemName;
     }
 
-    public float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -72,11 +75,11 @@ public class Items {
         this.epic = epic;
     }
 
-    public long getClientId() {
+    public BigInteger getClientId() {
         return clientId;
     }
 
-    public void setClientId(long clientId) {
+    public void setClientId(BigInteger clientId) {
         this.clientId = clientId;
     }
 
