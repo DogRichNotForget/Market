@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.asghoul.dao.OrderManageMapper">
+
+    <!--   查看我卖出的商品  -->
+    <select id="showSoldIitem" resultType="cn.asghoul.pojo.">
+
+
+    </select>
+
+    <!--   查看我买入的商品  -->
+    <select id="showBoughtItem" resultType="">
+
+    </select>
+
+    <!--   查看待收货的商品  -->
+    <select id="showToBeReceivedItem">
+
+    </select>
+
+    <!--   查看待评价的商品  -->
+    <select id="showToBeCommentItem">
+
+    </select>
+
+    <!--   查看我卖出的商品  -->
+    <select id="showToPayItem">
+
+    </select>
+
+</mapper>
