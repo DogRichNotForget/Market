@@ -37,7 +37,7 @@
 
     <!--根据id查询地址-->
     <select id="selectById">
-        select * from address_table ;
+        select * from address_table where address_table.addressId=#{};
     </select>
     <!--查询所有地址-->
     <select id="selectAddress" resultType="com.helen.entity.Adress">
