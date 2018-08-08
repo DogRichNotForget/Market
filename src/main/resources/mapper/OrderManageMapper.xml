@@ -5,29 +5,20 @@
 <mapper namespace="cn.asghoul.dao.OrderManageMapper">
 
     <!--   查看我卖出的商品  -->
-    <select id="showSoldIitem" resultType="cn.asghoul.pojo.">
-      select * from sold_items 
+    <select id="showSoldIitem" parameterType="int" resultType="cn.asghoul.pojo.dto.BoughtSoldItems">
+      select items.itemName,items.price,items.pic,sold_items.endTime from items,sold_items where items.itemId=sold_items.itemId
+      and clientId=#{clientId}
 
     </select>
 
     <!--   查看我买入的商品  -->
-    <select id="showBoughtItem" resultType="">
+    <select id="showBoughtItem" parameterType="int" resultType="cn.asghoul.pojo.dto.BoughtSoldItems">
+
+    select  items.itemName,items.price,items.pic,bought_items.endTime from items,bought_items where items.itemId=sold_items.itemId
+      and clientId=#{clientId}
 
     </select>
 
-    <!--   查看待收货的商品  -->
-    <select id="showToBeReceivedItem">
 
-    </select>
-
-    <!--   查看待评价的商品  -->
-    <select id="showToBeCommentItem">
-
-    </select>
-
-    <!--   查看我卖出的商品  -->
-    <select id="showToPayItem">
-
-    </select>
 
 </mapper>

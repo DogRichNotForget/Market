@@ -2,7 +2,7 @@
     <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    <mapper namespace="cn.asghoul.dao.OrderCreateMapper">
+    <mapper namespace="cn.asghoul.dao.OrderMapper">
 
     <!--生成订单表 -->
     <insert id="addorder" parameterType="cn.asghoul.pojo.Order">
@@ -16,7 +16,10 @@
                                 endTime) values (#{orderId},#{addressId},1,#{money},timestamp(now()),0,0,timestamp(now(), '00:15:00'))
     </insert>
 
-
+    <!--删除订单表-->
+    <delete id="delorder">
+        delete from order_table where order_table.orderId=#{orderId}
+    </delete>
 
 
     </mapper>

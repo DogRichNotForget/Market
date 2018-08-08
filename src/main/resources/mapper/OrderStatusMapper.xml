@@ -5,6 +5,35 @@
 <mapper namespace="cn.asghoul.dao.OrderStatusMapper">
 
 
+        <!--   查看待收货的商品  -->
+        <select id="showToBeReceivedItem" resultType="cn.asghoul.pojo.dto.OrderManageItem">
+           select client.name,items.itemName,items.descr,items.price,items.pic
+           from client,items,order_table,order_item
+           where order_table.orderId=order_item.orderId
+           and order_item.itenId=items.itemId
+           and items.clientId=client.clientId
+           and order_table.expressState
+        </select>
 
+        <!--   查看待评价的商品  -->
+        <select id="showToBeCommentItem" parameterType="" resultType="cn.asghoul.pojo.dto.OrderManageItem">
 
+           select client.name,items.itemName,items.descr,items.price,items.pic
+           from client,items,order_item,commentstate_table
+           where commentstate_table.orderId=order_item.orderId
+           and order_item.itemId=items.itemId
+           and items.clientId=client.clientId
+           and commentstate_table.commentState=0
+        </select>
+
+                <!--   查看未付款的商品  -->
+        <select id="showToPayItem" resultType="cn.asghoul.pojo.dto.OrderManageItem">
+            select client.name,items.itemName,items.descr,items.price,items.pic
+            from client,items,paystate_table,order_item
+            where paystate_table.orderId=order_item.orderId
+            and order_item.itemId=items.itemId
+            and items.clientId=client.clientId
+            and paystate_table.payState=1
+
+        </select>
 </mapper>

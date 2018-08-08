@@ -2,7 +2,7 @@ package cn.asghoul.dao;
 
 import cn.asghoul.pojo.Order;
 
-public interface OrderCreateMapper {
+public interface OrderMapper {
     /*
         购买生成订单
      */

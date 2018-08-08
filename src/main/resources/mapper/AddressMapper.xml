@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.asghoul.dao.OrderMapper">
+
+    <!--修改地址-->
+    <update id="updateAddress" parameterType="cn.asghoul.pojo.Address">
+        update address_table SET
+        address_table.address=#{address},
+        address_table.telphone=#{telphone},
+        address_table.name=#{name}
+        WHERE  address_table.id=#{adressId}
+    </update>
+
+    <!--插入新地址-->
+    <insert id="addAddress" parameterType="cn.asghoul.pojo.Address">
+        insert into address_table (clientId,address,telphone,name)
+        values (#{clientId},#{address},#{telphone},#{name});
+    </insert>
+
+
+    <!--设置默认地址-->
+    <select id="returnId" parameterType="cn.asghoul.pojo.Address" resultType="int">
+         SELECT address_table.adressId FROM adress_table  WHERE address_table.addressId=#{addressId}
+         ORDER BY addressId
+         LIMIT 0,1
+    </select>
+    <update id="updateDefault">
+        UPDATE  address_table SET address_table.defaultAddress=0
+        WHERE  address_table.addressId=#{adressId}
+    </update>
+    <update id="updateNormal">
+         UPDATE  address_table SET address_table.defaultAddress=1
+        WHERE  address_table.addressId=#{adressId}
+    </update>
+
+    <!--根据id查询地址-->
+    <select id="selectById">
+        select * from address_table ;
+    </select>
+    <!--查询所有地址-->
+    <select id="selectAddress" resultType="com.helen.entity.Adress">
+        SELECT address_table.addressId,address_table.name,address_table.telphone,address_table.address,address_table.defaultAddress
+        FROM address_table WHERE address_table.addressId=#{addressId}
+    </select>
+
+
+    <!--删除地址-->
+    <delete id="delAddress" parameterType="int">
+        delete from address_table where address_table.addressId=#{addressId}
+    </delete>
+
+</mapper>
