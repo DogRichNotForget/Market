@@ -6,7 +6,7 @@
 
     <!--   查看我卖出的商品  -->
     <select id="showSoldIitem" resultType="cn.asghoul.pojo.">
-
+      select * from sold_items 
 
     </select>
 
