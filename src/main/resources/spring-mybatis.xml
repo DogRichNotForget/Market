@@ -14,7 +14,7 @@
     <context:component-scan base-package="cn.asghoul.service"/>
 
     <!-- 配置数据库相关参数properties的属性：${url} -->
-    <context:property-placeholder location="classpath:../resources/jdbc.properties"/>
+    <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <!-- 数据库连接池 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
@@ -36,7 +36,7 @@
         <!-- 扫描model包 使用别名 -->
         <property name="typeAliasesPackage" value="cn.asghoul.pojo"/>
         <!-- 扫描sql配置文件:mapper需要的xml文件 -->
-        <property name="mapperLocations" value="classpath:../resources/mapper/*.xml"/>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
     </bean>
 
     <!-- 配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->

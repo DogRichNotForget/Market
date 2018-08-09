@@ -7,7 +7,6 @@
 <table>
     <thead>
     <th>
-    <td>itemId</td>
     <td>launchTime</td>
     <td> itemName</td>
     <td> price</td>
@@ -21,7 +20,6 @@
     <tbody>
     <c:forEach items="${items}" var="items">
         <tr>
-            <td>${items.itemId}</td>
             <td>${items.launchTime}</td>
             <td>${items.itemName}</td>
             <td>${items.price}</td>
@@ -29,6 +27,38 @@
             <td>${items.descr}</td>
             <td>${items.pic}</td>
             <td>${items.clientId}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+<table>
+    <thead>
+    <th>
+    <td>picId</td>
+    <td> picAddress</td>
+    </th>
+    </thead>
+    <tbody>
+    <c:forEach  items="${picItem}" var="picItem">
+        <tr>
+            <td>${picItem.picId}</td>
+            <td>${picItem.picAddress}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+
+<table>
+    <thead>
+    <th>
+    <td> telphone</td>
+
+    </th>
+    </thead>
+    <tbody>
+    <c:forEach items="${client}" var="client">
+        <tr>
+            <td>${client.telphone}</td>
         </tr>
     </c:forEach>
     </tbody>

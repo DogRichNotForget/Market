@@ -10,20 +10,20 @@ import java.util.Date;
  */
 public class Items {
 
-    private BigInteger itemId;//商品id
+    private int itemId;//商品id
     private Timestamp launchTime;//上架时间
     private String itemName;//商品名称
     private BigDecimal price;//商品价格
     private int itemType;//类型
     private String descr;//描述
-    private String epic;//图片
-    private BigInteger clientId;//卖家id
+    private String pic;//图片
+    private int clientId;//卖家id
 
-    public BigInteger getItemId() {
+    public int getItemId() {
         return itemId;
     }
 
-    public void setItemId(BigInteger itemId) {
+    public void setItemId(int itemId) {
         this.itemId = itemId;
     }
 
@@ -67,32 +67,32 @@ public class Items {
         this.descr = descr;
     }
 
-    public String getEpic() {
-        return epic;
+    public String getPic() {
+        return pic;
     }
 
-    public void setEpic(String epic) {
-        this.epic = epic;
+    public void setPic(String epic) {
+        this.pic = pic;
     }
 
-    public BigInteger getClientId() {
+    public int getClientId() {
         return clientId;
     }
 
-    public void setClientId(BigInteger clientId) {
+    public void setClientId(int clientId) {
         this.clientId = clientId;
     }
 
     @Override
     public String toString(){
         return "Items{"+
-                "itemId='"+ itemId+'\''+
+                "itemId='"+itemId+'\''+
                 ",launchTime='"+ launchTime+'\''+
                 ",itemName='"+ itemName+'\''+
                 ",prcie='"+price+'\''+
                 "itemType='"+itemType+'\''+
                 "descr='"+descr+'\''+
-                "epic='"+epic+'\''+
+                "epic='"+pic+'\''+
                 "clientId='"+clientId+'\''+
                 "}";
     }

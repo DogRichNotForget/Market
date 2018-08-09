@@ -6,23 +6,23 @@ import java.math.BigInteger;
      *  商品图片表:picItem
      */
     public class PicItem {
-        private BigInteger picId;//图片id
-        private BigInteger itemId;//商品id
+        private int picId;//图片id
+        private int itemId;//商品id
         private String picAddress;//图片地址
 
-    public BigInteger getPicId() {
+    public int getPicId() {
         return picId;
     }
 
-    public void setPicId(BigInteger picId) {
+    public void setPicId(int picId) {
         this.picId = picId;
     }
 
-    public BigInteger getItemId() {
+    public int getItemId() {
         return itemId;
     }
 
-    public void setItemId(BigInteger itemId) {
+    public void setItemId(int itemId) {
         this.itemId = itemId;
     }
 

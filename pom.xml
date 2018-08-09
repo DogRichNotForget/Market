@@ -40,7 +40,6 @@
         <!-- jstl版本号 -->
         <jstl.version>1.2</jstl.version>
     </properties>
-    <!-- java ee -->
 
 
     <dependencies>

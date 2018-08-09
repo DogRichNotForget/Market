@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.asghoul.dao.ItemsDao">
-    <select id="selectItems" resultType="cn.asghoul.pojo.Items" parameterType="int">
-        SELECT * FROM  Items;
-        <where>
-            <if test="itemId!=null">
-                AND itemId=#{itemId}
-            </if>
-        </where>
+<mapper namespace="cn.asghoul.dao.ItemsMapper">
+    <select id="selectItems" resultType="cn.asghoul.pojo.Items" >
+        SELECT
+        launchTime,
+        itemName,
+        price,
+        itemType,
+        descr,
+        pic,
+        clientId
+        FROM
+        Items
+        WHERE
+        itemId=#{itemId};
     </select>
-    <select id="selectPic" resultType="cn.asghoul.pojo.Picitem">
-        SELECT * FROM Picitem;
-        <where>
-            <if test="picId!=null">
-                AND picId=#{picId}
-            </if>
-        </where>
+    <select id="selectPicItem" resultType="cn.asghoul.pojo.PicItem">
+        SELECT
+        picId,
+        picAddress
+        FROM
+        PicItem
+        WHERE
+        itemId=#{itemId};
+    </select>
+    <select id="selectClient" resultType="cn.asghoul.pojo.Client">
+        SELECT
+        telphone
+        FROM
+        Client
+        WHERE
+        clientId=(SELECT clientId FROM Items WHERE itemId=#{itemId});
     </select>
 </mapper>
