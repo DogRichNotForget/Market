@@ -12,7 +12,7 @@ public class PayState {
 //    订单号：orderid
     private BigInteger orderId;
 //    支付状态：paystate
-    private  int payState;//(0是已支付，1是未支付)
+    private  int payState;//(0是未支付，1是已支付)
 //    创建时间：createTime
     private Timestamp createTime;
 //    结束时间：endTime

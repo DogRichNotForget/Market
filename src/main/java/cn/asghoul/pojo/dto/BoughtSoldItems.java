@@ -1,9 +1,7 @@
 package cn.asghoul.pojo.dto;
 
-import java.sql.Timestamp;
-
 /*
-    买入的商品表
+    展示的买入卖出的商品表
 
  */
 public class BoughtSoldItems {
@@ -14,9 +12,8 @@ public class BoughtSoldItems {
 //   商品价格：   price
     private  float price;
 //   商品图片：   pic
-    private String pic;
-//   交易时间：   endTime
-    private Timestamp endTime;
+    private String picAddress;
+
 
     public String getItemName() {
         return itemName;
@@ -34,19 +31,11 @@ public class BoughtSoldItems {
         this.price = price;
     }
 
-    public String getPic() {
-        return pic;
+    public String getPicAddress() {
+        return picAddress;
     }
 
-    public void setPic(String pic) {
-        this.pic = pic;
-    }
-
-    public Timestamp getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Timestamp endTime) {
-        this.endTime = endTime;
+    public void setPicAddress(String picAddress) {
+        this.picAddress = picAddress;
     }
 }

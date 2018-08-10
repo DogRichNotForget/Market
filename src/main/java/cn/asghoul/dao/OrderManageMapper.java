@@ -1,8 +1,16 @@
 package cn.asghoul.dao;
 
+import cn.asghoul.pojo.dto.BoughtSoldItems;
+import org.apache.ibatis.annotations.Param;
+
+import java.math.BigInteger;
+import java.util.List;
+
 public interface OrderManageMapper {
 
-    /*
-        订单管理（未支付订单超过十五分钟自动取消，定时任务）
-     */
+
+    //查询我卖出的商品
+    public List<BoughtSoldItems> showSoldItem(@Param("clientId") BigInteger clientId);
+    //查看我买入的商品
+    public List<BoughtSoldItems> showBoughtItem(@Param("clientId") BigInteger clientId);
 }

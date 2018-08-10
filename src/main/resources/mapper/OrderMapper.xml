@@ -6,14 +6,13 @@
 
     <!--生成订单表 -->
     <insert id="addorder" parameterType="cn.asghoul.pojo.Order">
-        insert into order_table(orderId,
+        insert into order_table(
                                 addressId,
                                 payState,
                                 money,
                                 createTime,
-                                commentState,
                                 expressState,
-                                endTime) values (#{orderId},#{addressId},1,#{money},timestamp(now()),0,0,timestamp(now(), '00:15:00'))
+                                endTime) values (#{addressId},0,#{money},timestamp(now()),0,timestamp(now(), '00:15:00'))
     </insert>
 
     <!--删除订单表-->
@@ -22,30 +21,13 @@
     </delete>
 
     <!--查询订单-->
-    <select id="selectOrders">
+    <select id="selectOrders" parameterType="int" resultType="cn.asghoul.pojo.dto.OrderPay">
         select address_table.name,address_table.telphone,address_table.address,order_table.money
         from address_table,order_table
-        where address_table.addressId=order_table.addressId
+        where address_table.addressId=order_table.addressId and address_table.clientId=#{clientId}
     </select>
 
 
-   <!--修改评论状态为待评价-->
-    <update id="updadteCommentStatus">
-        update order_table set order_table.commentState=0;
-    </update>
-    <!--修改评论状态为已评价-->
-    <update id="updadteCommentStatus">
-        update order_table set order_table.commentState=1;
-    </update>
 
-
-    <!--修改物流状态为待收货-->
-    <update id="updateExpressStatus">
-           update order_table set  order_table.expressState=0;
-    </update>
-    <!--修改物流状态为已收货-->
-    <update id="updateExpressStatus">
-           update order_table set  order_table.expressState=0;
-    </update>
 
 </mapper>

@@ -14,7 +14,7 @@ public class OrderManageItem {
 //    商品价格：price,
     private float price;
 //    商品图片：pic
-    private String pic;
+    private String picAddress;
 
     public String getName() {
         return name;
@@ -48,11 +48,11 @@ public class OrderManageItem {
         this.price = price;
     }
 
-    public String getPic() {
-        return pic;
+    public String getPicAddress() {
+        return picAddress;
     }
 
-    public void setPic(String pic) {
-        this.pic = pic;
+    public void setPicAddress(String picAddress) {
+        this.picAddress = picAddress;
     }
 }

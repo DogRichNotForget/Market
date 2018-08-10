@@ -17,13 +17,12 @@ public class Order {
     private float money;
 //    产生时间：createTime
     private Timestamp cteateTime;
-//    评价状态：commentState
-    private int commentState;//(0是待评价，1是已评价)
 //    物流状态：expressState
     private int expressState;//(0是待收货，1是已收货// )
 //    结束时间：endTime
     private Timestamp endTime;
-
+//    卖家Id: clientId
+    private BigInteger clientId;
 
 
 
@@ -67,13 +66,6 @@ public class Order {
         this.cteateTime = cteateTime;
     }
 
-    public int getCommentState() {
-        return commentState;
-    }
-
-    public void setCommentState(int commentState) {
-        this.commentState = commentState;
-    }
 
     public int getExpressState() {
         return expressState;
@@ -89,5 +81,13 @@ public class Order {
 
     public void setEndTime(Timestamp endTime) {
         this.endTime = endTime;
+    }
+
+    public BigInteger getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(BigInteger clientId) {
+        this.clientId = clientId;
     }
 }

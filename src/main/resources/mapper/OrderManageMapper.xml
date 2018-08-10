@@ -5,17 +5,21 @@
 <mapper namespace="cn.asghoul.dao.OrderManageMapper">
 
     <!--   查看我卖出的商品  -->
-    <select id="showSoldIitem" parameterType="int" resultType="cn.asghoul.pojo.dto.BoughtSoldItems">
-      select items.itemName,items.price,items.pic,sold_items.endTime from items,sold_items where items.itemId=sold_items.itemId
-      and clientId=#{clientId}
+    <select id="showSoldItem" parameterType="int" resultType="cn.asghoul.pojo.dto.BoughtSoldItems">
+      select items.itemName,items.price,pic_item.picAddress from items,sold_items,pic_item
+      where items.itemId=sold_items.itemId
+      and pic_item.itemId=items.itemId
+      and sold_items.clientId=#{clientId}
 
     </select>
 
     <!--   查看我买入的商品  -->
     <select id="showBoughtItem" parameterType="int" resultType="cn.asghoul.pojo.dto.BoughtSoldItems">
 
-    select  items.itemName,items.price,items.pic,bought_items.endTime from items,bought_items where items.itemId=sold_items.itemId
-      and clientId=#{clientId}
+      select items.itemName,items.price,pic_item.picAddress from items,bought_items,pic_item
+      where items.itemId=sold_items.itemId
+      and pic_item.itemId=items.itemId
+      and bought_items.clientId=#{clientId}
 
     </select>
 
