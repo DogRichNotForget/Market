@@ -11,22 +11,51 @@
                                 payState,
                                 money,
                                 createTime,
-                                expressState,
-                                endTime) values (#{addressId},0,#{money},timestamp(now()),0,timestamp(now(), '00:15:00'))
+                                endTime
+                                clientId) values (#{addressId},0,#{money},timestamp(now()),timestamp(now(), '00:15:00'),#{clientId})
+    </insert>
+
+
+
+    <!--生成订单商品信息-->
+    <insert id="addOrderItem" parameterType="BigInteger">
+        insert into order_item (orderId,itemId,commentState,expressState) values (#{orderId},#{itemId},3,3);
     </insert>
 
     <!--删除订单表-->
-    <delete id="delorder">
+    <delete id="delorder" parameterType="BigInteger">
         delete from order_table where order_table.orderId=#{orderId}
     </delete>
+    <!--删除订单商品表-->
+    <delete id="deleteOrderItem" parameterType="BigInteger">
+        delete from order_item where order_item.orderId=#{orderId}
+    </delete>
 
-    <!--查询订单-->
-    <select id="selectOrders" parameterType="int" resultType="cn.asghoul.pojo.dto.OrderPay">
-        select address_table.name,address_table.telphone,address_table.address,order_table.money
-        from address_table,order_table
-        where address_table.addressId=order_table.addressId and address_table.clientId=#{clientId}
+    <!--查询未支付订单的Id-->
+    <select id="notPayId" resultType="BigInteger">
+        select order_table.orderId from order_table where order_table.payState=0;
     </select>
 
+    <!--查询订单(支付页面)-->
+    <select id="selectOrders" parameterType="BigInteger" resultType="cn.asghoul.pojo.dto.OrderPay">
+        select
+          address_table.name,
+          address_table.telphone,
+          address_table.address,
+          order_table.money
+        from address_table,order_table
+        where address_table.addressId=order_table.addressId
+        and order_table.orderId=#{orderId}
+    </select>
+
+    <!--查询订单里所有商品-->
+    <select id="allItems" resultType="cn.asghoul.pojo.dto.OrderPayItems">
+        select items.itemName,items.descr,items.price,pic_item.picAddress
+        from items,pic_item,order_item,order_table
+        where order_table.orderId=order_item.orderId=#{orderId}
+        and order_item.itemId=items.itemId
+        and pic_item.itemId=items.itemId;
+    </select>
 
 
 

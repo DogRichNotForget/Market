@@ -47,5 +47,8 @@
     </orderEntry>
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.46" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis:mybatis:3.4.6" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.0.7.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.0.7.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.0.7.RELEASE" level="project" />
   </component>
 </module>

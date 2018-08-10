@@ -17,8 +17,6 @@ public class Order {
     private float money;
 //    产生时间：createTime
     private Timestamp cteateTime;
-//    物流状态：expressState
-    private int expressState;//(0是待收货，1是已收货// )
 //    结束时间：endTime
     private Timestamp endTime;
 //    卖家Id: clientId
@@ -64,15 +62,6 @@ public class Order {
 
     public void setCteateTime(Timestamp cteateTime) {
         this.cteateTime = cteateTime;
-    }
-
-
-    public int getExpressState() {
-        return expressState;
-    }
-
-    public void setExpressState(int expressState) {
-        this.expressState = expressState;
     }
 
     public Timestamp getEndTime() {

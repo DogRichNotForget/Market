@@ -5,7 +5,7 @@
 <mapper namespace="cn.asghoul.dao.OrderManageMapper">
 
     <!--   查看我卖出的商品  -->
-    <select id="showSoldItem" parameterType="int" resultType="cn.asghoul.pojo.dto.BoughtSoldItems">
+    <select id="showSoldItem" parameterType="BigInteger" resultType="cn.asghoul.pojo.dto.BoughtSoldItems">
       select items.itemName,items.price,pic_item.picAddress from items,sold_items,pic_item
       where items.itemId=sold_items.itemId
       and pic_item.itemId=items.itemId
@@ -14,15 +14,86 @@
     </select>
 
     <!--   查看我买入的商品  -->
-    <select id="showBoughtItem" parameterType="int" resultType="cn.asghoul.pojo.dto.BoughtSoldItems">
+    <select id="showBoughtItem" parameterType="BigInteger" resultType="cn.asghoul.pojo.dto.BoughtSoldItems">
 
       select items.itemName,items.price,pic_item.picAddress from items,bought_items,pic_item
-      where items.itemId=sold_items.itemId
+      where items.itemId=bought_items.itemId
       and pic_item.itemId=items.itemId
       and bought_items.clientId=#{clientId}
 
     </select>
 
+    <!--   查看待收货的商品  -->
+    <select id="showToBeReceivedItem" parameterType="BigInteger" resultType="cn.asghoul.pojo.dto.OrderManageItem">
+           select client.name,items.itemName,items.descr,items.price,pic_item.picAddress
+           from client,items,order_table,order_item,pic_item
+           where order_table.orderId=order_item.orderId=#{orderId}
+           and order_item.itemId=items.itemId
+           and pic_item.itemId=items.itemId
+           and items.clientId=client.clientId
+           and order_item.expressState=0
+        </select>
 
+    <!--   查看待评价的商品  -->
+    <select id="showToBeCommentItem" parameterType="BigInteger" resultType="cn.asghoul.pojo.dto.OrderManageItem">
+
+           select client.name,items.itemName,items.descr,items.price,pic_item.picAddress
+           from client,items,order_item,order_table,pic_item
+           where order_table.orderId=order_item.orderId=#{orderId}
+           and order_item.itemId=items.itemId
+           and pic_item.itemId=items.itemId
+           and items.clientId=client.clientId
+           and order_item.commentState=0
+        </select>
+
+    <!--   查看未付款的商品  -->
+    <select id="showToPayItem" parameterType="BigInteger" resultType="cn.asghoul.pojo.dto.OrderManageItem">
+            select client.name,items.itemName,items.descr,items.price,pic_item.picAddress
+            from client,items,order_item,pic_item,paystate_table
+            where order_table.orderId=order_item.orderId=#{orderId}
+            and order_item.itemId=items.itemId
+            and pic_item.itemId=items.itemId
+            and items.clientId=client.clientId
+            and order_table.payState=0
+        </select>
+
+
+    <!--修改评论状态为待评价-->
+    <update id="updateToBeComment" parameterType="BigInteger">
+            update order_item set order_item.commentState=0 where order_item.itemId=#{itemId};
+        </update>
+    <!--修改评论状态为已评价-->
+    <update id="updateCommented" parameterType="BigInteger">
+            update order_item set order_item.commentState=1 where order_item.itemId=#{itemId};
+        </update>
+
+
+    <!--修改物流状态为待收货-->
+    <update id="updateToBeReceived" parameterType="BigInteger">
+         update order_item set  order_item.expressState=0 where order_item.itemId=#{itemId};
+    </update>
+    <!--修改物流状态为已收货-->
+    <update id="updateReceived" parameterType="BigInteger">
+         update order_item set order_item.expressState=1 where order_item.itemId=#{itemId};
+    </update>
+
+    <!--修改支付状态为已支付-->
+    <update id="updatePrepaid" parameterType="BigInteger">
+            update order_table set order_table.payState=1 where order_table.orderId=#{orderId}
+    </update>
+
+    <!--删除我买入的商品-->
+    <delete id="deleteBoghtItem">
+        delete from bought_items where bought_items.clientId=#{clientId} and bought_items.itemId=#{itemId}
+    </delete>
+    <!--删除我卖出的商品-->
+    <delete id="deleteSoldItem">
+         delete from sold_items where sold_items.clientId=#{clientId} and sold_items.itemId=#{itemId}
+    </delete>
+
+    <!--根据商品Id查询订单Id-->
+    <select id="selectById" parameterType="BigInteger" resultType="BigInteger">
+        select order_item.orderId from order_item,order_table where order_item.itemId=#{itemId};
+    </select>
 
 </mapper>
