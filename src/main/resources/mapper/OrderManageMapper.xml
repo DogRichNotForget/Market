@@ -91,9 +91,26 @@
          delete from sold_items where sold_items.clientId=#{clientId} and sold_items.itemId=#{itemId}
     </delete>
 
-    <!--根据商品Id查询订单Id-->
+    <!--根据订单Id查询商品Id-->
     <select id="selectById" parameterType="BigInteger" resultType="BigInteger">
-        select order_item.orderId from order_item,order_table where order_item.itemId=#{itemId};
+        select order_item.itemId from order_item where order_item.orderId#{orderId};
     </select>
 
+    <!--存入我卖出的商品表-->
+    <insert id="addSoldItem">
+        insert into sold_items(clientId,itemId,endTime) values(#{clientId},#{itemId},#{endTime})
+    </insert>
+    <!--存入我买入的商品表-->
+    <insert id="addBoughtItem">
+        insert into bought_items(clientId,itemId,endTime) values(#{clientId},#{itemId},#{endTime})
+    </insert>
+
+    <!--根据商品Id返回卖家Id-->
+    <select id="returnSoldId" resultType="BigInteger">
+        select items.clientId from items where items.itemId=#{itemId} ;
+    </select>
+    <!--根据商品Id返回买家Id-->
+    <select id="returnBoughtId" resultType="BigInteger">
+        select order_table.clientId from order_table,order_item where order_item.itemId=order_table.orderId,and order_item.itemId=#{itemId};
+    </select>
 </mapper>

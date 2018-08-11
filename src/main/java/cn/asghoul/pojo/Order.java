@@ -12,7 +12,7 @@ public class Order {
 //    地址id：addressId
     private BigInteger addressId;
 //    支付状态：payState
-    private int patState;//(0是已支付，1是未支付)
+    private int patState;//(0是未支付，1是已支付)
 //    订单金额：money
     private float money;
 //    产生时间：createTime

@@ -1,15 +1,15 @@
 package cn.asghoul.service;
 
 import cn.asghoul.pojo.dto.OrderDetails;
-import cn.asghoul.pojo.dto.OrderPay;
 
 import java.math.BigInteger;
+import java.util.Map;
 
 public interface OrderService {
 
     //生成新订单
-    public void createOrder(OrderDetails orderDetails);
+    public OrderDetails createOrder(OrderDetails orderDetails);
 
     //查询订单详情
-    public OrderPay showPayDetail(BigInteger orderId);
+    public Map<String,Object> showPayDetail(BigInteger orderId);
 }

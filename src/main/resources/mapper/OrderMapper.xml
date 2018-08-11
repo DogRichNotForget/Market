@@ -57,6 +57,13 @@
         and pic_item.itemId=items.itemId;
     </select>
 
+    <!--根据订单Id查询买家Id-->
+    <select id="getClientId" parameterType="BigInteger" resultType="BigInteger">
+        select order_table.clientId from order_table where order_table.orderId=#{orderId};
+    </select>
 
-
+    <!--根据商品Id查询购物车Id-->
+    <select id="returnCollectId" parameterType="BigInteger" resultType="BigInteger">
+        select collect.collectId from collect where collect.itemId=#{itemId};
+    </select>
 </mapper>

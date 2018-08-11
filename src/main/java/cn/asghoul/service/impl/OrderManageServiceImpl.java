@@ -60,9 +60,14 @@ public class OrderManageServiceImpl implements OrderManageService {
     //确认收货
     @Override
     public void confirmOrder(BigInteger itemId) {
+        //修改物流状态为已收货
         orderManageMapper.updateReceived(itemId);
-
-        //
+        //卖家存入我卖出的商品表
+        BigInteger clientSoldId=orderManageMapper.returnSoldId(itemId);
+        orderManageMapper.addSoldItem(clientSoldId,itemId);
+        //买家存入我买入的商品表
+        BigInteger clientBoughtId=orderManageMapper.returnBoughtId(itemId);
+        orderManageMapper.addBoughtItem(clientBoughtId,itemId);
     }
 
     //提交评价
@@ -76,7 +81,10 @@ public class OrderManageServiceImpl implements OrderManageService {
     public void payOrder(BigInteger orderId) {
         //付款后，payState为已支付,expressState为待收货,
         orderManageMapper.updatePrepaid(orderId);
-
+        List<BigInteger> list=orderManageMapper.selectById(orderId);
+        for(BigInteger li:list) {
+            orderManageMapper.updateToBeReceived(li);
+        }
     }
 
     //取消订单

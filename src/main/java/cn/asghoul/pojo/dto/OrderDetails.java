@@ -1,7 +1,5 @@
 package cn.asghoul.pojo.dto;
 
-import cn.asghoul.pojo.Items;
-
 import java.math.BigInteger;
 import java.util.List;
 
@@ -16,7 +14,7 @@ public class OrderDetails {
     //卖家Id:  clientId
     private BigInteger clientId;
     //订单中所有商品Id:  List<items>
-    private List<Items> itemsId;
+    private List<BigInteger> itemsId;
 
     public BigInteger getOrderId() {
         return orderId;
@@ -50,11 +48,11 @@ public class OrderDetails {
         this.clientId = clientId;
     }
 
-    public List<Items> getItemsId() {
+    public List<BigInteger> getItemsId() {
         return itemsId;
     }
 
-    public void setItemsId(List<Items> itemsId) {
+    public void setItemsId(List<BigInteger> itemsId) {
         this.itemsId = itemsId;
     }
 }

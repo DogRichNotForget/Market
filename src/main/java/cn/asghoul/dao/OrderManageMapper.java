@@ -38,6 +38,15 @@ public interface OrderManageMapper
     public void deleteBoghtItem(@Param("clientId") BigInteger clientId,@Param("itemId") BigInteger itemId);
     //删除我卖出的商品
     public void deleteSoldItem(@Param("clientId") BigInteger clientId,@Param("itemId") BigInteger itemId);
-    //根据商品Id查询订单Id
-    public BigInteger selectById(@Param("itemId") BigInteger itemId);
+    //根据订单Id查询商品Id
+    public List<BigInteger> selectById(@Param("orderId") BigInteger orderId);
+
+    //存入我卖出的商品表
+    public void addSoldItem(@Param("clientId")BigInteger clientId, @Param("itemId")BigInteger itemId);
+    //存入我买入的商品表
+    public void addBoughtItem(@Param("clientId")BigInteger clientId, @Param("itemId")BigInteger itemId);
+    //根据商品Id返回卖家Id
+    public BigInteger returnSoldId(@Param("itemId") BigInteger itemId);
+    //根据商品Id返回买家Id
+    public BigInteger returnBoughtId(@Param("itemId") BigInteger itemId);
 }
